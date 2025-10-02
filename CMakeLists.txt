@@ -6,6 +6,7 @@ find_package(PkgConfig REQUIRED)
 
 set(SOURCES
     main.c
+    src/calculator.c
 )
 
 add_executable(${PROJECT_NAME} ${SOURCES})
