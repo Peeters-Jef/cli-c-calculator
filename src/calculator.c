@@ -27,7 +27,15 @@ Operator calculator_operator_set() {
 
 int calculator_number_set() {
     int choosen_number;
-    scanf("%d", &choosen_number);
+    char input[100];
+
+    while (fgets(input, sizeof(input), stdin)) {
+        if (sscanf(input, "%d", &choosen_number) == 1) {
+            break;
+        } else {
+            printf("invalid input. Try again \n");
+        }
+    }
 
     return choosen_number;
 }
