@@ -12,7 +12,7 @@ typedef enum {
 
 
 Operator calculator_operator_set();
-int calculator_number_set();
-bool calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator, int *result);
+double calculator_number_set();
+bool calculator_calculate(double choosen_number_first, double choosen_number_second, Operator choosen_operator, double *result);
 
 #endif

@@ -32,13 +32,13 @@ Operator calculator_operator_set() {
     }
 }
 
-int calculator_number_set() {
-    int choosen_number;
+double calculator_number_set() {
+    double choosen_number;
     char input[100];
 
 
     while (fgets(input, sizeof(input), stdin)) {
-        if (sscanf(input, "%d", &choosen_number) == 1) {
+        if (sscanf(input, "%lf", &choosen_number) == 1) {
             break;
         } else {
             printf("invalid input. Try again \n");
@@ -48,7 +48,7 @@ int calculator_number_set() {
     return choosen_number;
 }
 
-bool calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator, int *result) {
+bool calculator_calculate(double choosen_number_first, double choosen_number_second, Operator choosen_operator, double *result) {
     switch (choosen_operator) {
         case SUM:
             *result = choosen_number_first + choosen_number_second;

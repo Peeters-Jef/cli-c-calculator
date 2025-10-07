@@ -7,11 +7,11 @@ int main() {
     printf("+, -, *, /\n");
     Operator choosen_operator = calculator_operator_set();
     printf("Please type in a number\n");
-    int first_number = calculator_number_set();
+    double first_number = calculator_number_set();
     printf("Please type in a second number\n");
-    int second_number = calculator_number_set();
-    int result;
+    double second_number = calculator_number_set();
+    double result;
     if (calculator_calculate(first_number, second_number, choosen_operator, &result)) {
-        printf("The result is %d\n", result);
+        printf("The result is %.2lf\n", result);
     }
 }
