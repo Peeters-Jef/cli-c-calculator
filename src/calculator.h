@@ -7,7 +7,8 @@ typedef enum {
     SUM,
     DIFFERENCE,
     PRODUCT,
-    QUOTIENT
+    QUOTIENT,
+    NONE
 } Operator;
 
 

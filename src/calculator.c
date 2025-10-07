@@ -6,6 +6,9 @@ Operator calculator_operator_set() {
     char choosen_operator;
     char input[100];
 
+    printf("Please select the operation you would like to do:\n");
+    printf("+, -, *, /, or press q to quit\n");
+
     while (fgets(input, sizeof(input), stdin)) {
         if (sscanf(input, " %c", &choosen_operator) == 1) {
             switch (choosen_operator) {
@@ -21,6 +24,9 @@ Operator calculator_operator_set() {
                 case '/':
                     return QUOTIENT;
                     break;
+                case 'q':
+                    return NONE;
+                    break;
                 default:
                     printf("Default operator chosen: None");
                     break;
@@ -30,12 +36,14 @@ Operator calculator_operator_set() {
             printf("Invalid input");
         }
     }
+    return NONE;
 }
 
 double calculator_number_set() {
     double choosen_number;
     char input[100];
 
+    printf("Please type in a number\n");
 
     while (fgets(input, sizeof(input), stdin)) {
         if (sscanf(input, "%lf", &choosen_number) == 1) {
