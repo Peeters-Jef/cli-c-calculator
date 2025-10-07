@@ -1,6 +1,8 @@
 #ifndef CALCULATOR_H
 #define CALCULATOR_H
 
+#include <stdbool.h>
+
 typedef enum {
     SUM,
     DIFFERENCE,
@@ -11,6 +13,6 @@ typedef enum {
 
 Operator calculator_operator_set();
 int calculator_number_set();
-int calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator);
+bool calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator, int *result);
 
 #endif

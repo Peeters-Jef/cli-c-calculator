@@ -10,7 +10,8 @@ int main() {
     int first_number = calculator_number_set();
     printf("Please type in a second number\n");
     int second_number = calculator_number_set();
-    int result = calculator_calculate(first_number, second_number, choosen_operator);
-
-    printf("The result is %d\n", result);
+    int result;
+    if (calculator_calculate(first_number, second_number, choosen_operator, &result)) {
+        printf("The result is %d\n", result);
+    }
 }
