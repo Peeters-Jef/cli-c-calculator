@@ -4,30 +4,38 @@
 
 Operator calculator_operator_set() {
     char choosen_operator;
-    scanf("%c", &choosen_operator);
+    char input[100];
 
-    switch (choosen_operator) {
-        case '+':
-            return SUM;
-            break;
-        case '-':
-            return DIFFERENCE;
-            break;
-        case '*':
-            return PRODUCT;
-            break;
-        case '/':
-            return QUOTIENT;
-            break;
-        default:
-            printf("Default operator chosen: None");
-            break;
+    while (fgets(input, sizeof(input), stdin)) {
+        if (sscanf(input, " %c", &choosen_operator) == 1) {
+            switch (choosen_operator) {
+                case '+':
+                    return SUM;
+                    break;
+                case '-':
+                    return DIFFERENCE;
+                    break;
+                case '*':
+                    return PRODUCT;
+                    break;
+                case '/':
+                    return QUOTIENT;
+                    break;
+                default:
+                    printf("Default operator chosen: None");
+                    break;
+            }
+        
+        } else {
+            printf("Invalid input");
+        }
     }
 }
 
 int calculator_number_set() {
     int choosen_number;
     char input[100];
+
 
     while (fgets(input, sizeof(input), stdin)) {
         if (sscanf(input, "%d", &choosen_number) == 1) {
@@ -40,19 +48,24 @@ int calculator_number_set() {
     return choosen_number;
 }
 
-int calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator) {
+bool calculator_calculate(int choosen_number_first, int choosen_number_second, Operator choosen_operator, int *result) {
     switch (choosen_operator) {
         case SUM:
-            return choosen_number_first + choosen_number_second;
-            break;
+            *result = choosen_number_first + choosen_number_second;
+            return true;
         case DIFFERENCE:
-            return choosen_number_first - choosen_number_second;
-            break;
+            *result = choosen_number_first - choosen_number_second;
+            return true;
         case PRODUCT:
-            return choosen_number_first * choosen_number_second;
-            break;
+            *result = choosen_number_first * choosen_number_second;
+            return true;
         case QUOTIENT:
-            return choosen_number_first / choosen_number_second;
-            break;
+            if (choosen_number_second == 0) {
+                printf("Error: Cannot divide by ZERO\n");
+                return false;
+            }
+            *result = choosen_number_first / choosen_number_second;
+        default:
+            return false;
     }
 }
